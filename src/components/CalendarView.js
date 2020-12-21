@@ -6,16 +6,27 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 function CalendarView(props) {
 
     const localizer = momentLocalizer(moment);
+    const [trainings, setTrainings] = useState([]);
     const [events, setEvents] = useState([]);
 
     useEffect(()=>{
-        props.trainings.map((training) => 
-        setEvents(...events, {
-            start: training.date.toDate(),
-            end: training.date.add(1, training.duration).toDate,
-            title: training.acticity + "/" + training.customer.lastname
-        })
-    )});
+        getTrainings();
+        
+        console.log(props);
+        setEvents(trainings.map((training, index) => ({
+            id: index,
+            start: moment(training.date)._d,
+            end: moment(training.date).add(training.duration, 'minutes')._d,
+            title: training.activity + "/" + training.customer.lastname
+        }))
+    )}, [trainings.length]);
+
+    const getTrainings = () => {
+        fetch('https://customerrest.herokuapp.com/gettrainings')
+        .then(response => response.json())
+        .then(data => setTrainings(data))
+        .catch(err => console.error(err));
+    }
 
     return (
         <div>

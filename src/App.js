@@ -24,6 +24,10 @@ function App() {
             <Link style={{marginRight: 20}} to="/trainings">Trainings</Link >
             <Link to="/calendar">Calendar</Link>
             <Switch> 
+              <Route exact path="/"><div style style={{margin: 50}}>
+                <Typography variant="h3">Welcome to Personal Trainer App!</Typography>
+                Click on the above links to see customers and agreed trainings</div>
+              </Route>
               <Route path="/customers" component={Customers} />
               <Route path ="/trainings" component={Trainings} />
               <Route path ="/calendar" component={CalendarView} />

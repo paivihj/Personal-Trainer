@@ -17,12 +17,6 @@ function AddTraining(props) {
       duration: '', 
       activity: '', 
     });
-  const [newTraining, setNewTraining] = React.useState({
-      date: '',
-      duration: '',
-      activity: '',
-      customer: '',
-    });
 
   const handleClickOpen = () => {
     console.log(props.params.value[0].href);
@@ -35,16 +29,15 @@ function AddTraining(props) {
 
   const handleSave = () => {
     var year = parseInt(training.date.substring(0,4));
-    var month = parseInt(training.date.substring(5,7));
+    var month = parseInt(training.date.substring(5,7))-1;
     var day = parseInt(training.date.substring(8,10));
     var hour = parseInt(training.time.substring(0,2));
     var minute = parseInt(training.time.substring(3,5));
     var date = new Date(year, month, day, hour, minute);
-    setNewTraining({date: date.toISOString(), 
-                    activity: training.activity, 
-                    duration:training.duration,
-                    customer: props.params.value[0].href});
-    props.addTraining(newTraining);
+    props.addTraining({date: date.toISOString(), 
+      activity: training.activity, 
+      duration:training.duration,
+      customer: props.params.value[0].href});
     handleClose();
   };
 

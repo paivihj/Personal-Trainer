@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Snackbar from '@material-ui/core/Snackbar';
 import Tooltip from '@material-ui/core/Tooltip';
-import CalendarView from './CalendarView';
 
 function Trainings() {
     const [trainings, setTrainings] = useState([]);
@@ -29,7 +28,7 @@ function Trainings() {
         fetch('https://customerrest.herokuapp.com/gettrainings')
         .then(response => response.json())
         .then(data => setTrainings(data))
-        .catch(err => console.error(err))
+        .catch(err => console.error(err));
     }
 
     const deleteTraining = (params) => {
