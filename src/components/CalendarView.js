@@ -12,7 +12,6 @@ function CalendarView(props) {
     useEffect(()=>{
         getTrainings();
         
-        console.log(props);
         setEvents(trainings.map((training, index) => ({
             id: index,
             start: moment(training.date)._d,
