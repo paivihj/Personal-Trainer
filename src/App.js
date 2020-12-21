@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Customers from './components/Customers';
 import Trainings from './components/Trainings';
+import CalendarView from './components/CalendarView';
 
 function App() {
   return (
@@ -17,14 +18,18 @@ function App() {
           </Typography>
         </Toolbar>
       </AppBar></div>
+      <div style={{margin: 5}}>
       <BrowserRouter>
-            <Link to="/customers" >Customers</Link>
-            <Link to="/trainings">Trainings</Link >
+            <Link style={{marginRight: 20}} to="/customers" >Customers</Link>
+            <Link style={{marginRight: 20}} to="/trainings">Trainings</Link >
+            <Link to="/calendar">Calendar</Link>
             <Switch> 
               <Route path="/customers" component={Customers} />
               <Route path ="/trainings" component={Trainings} />
+              <Route path ="/calendar" component={CalendarView} />
             </Switch>
         </BrowserRouter>
+        </div>
     </div>
   );
 }

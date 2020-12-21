@@ -11,10 +11,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 function AddTraining(props) {
   const [open, setOpen] = React.useState(false);
-  //const [dateTime, setDateTime] = React.useState('');
   const [training, setTraining] = React.useState({ 
-      date: '2020-12-18', 
-      time: '18:00',
+      date: '', 
+      time: '',
       duration: '', 
       activity: '', 
     });
@@ -26,8 +25,7 @@ function AddTraining(props) {
     });
 
   const handleClickOpen = () => {
-      console.log(props.params.value[0].href);
-      console.log(training.date + 'T' + training.time + ':00.000+0000');
+    console.log(props.params.value[0].href);
     setOpen(true);
   };
 
@@ -36,9 +34,16 @@ function AddTraining(props) {
   };
 
   const handleSave = () => {
-    setNewTraining({date: training.date + 'T' + training.time + ':00.000+0000', 
-                    duration:training.duration, 
-                    activity: training.activity, customer: props.params.value[0].href});
+    var year = parseInt(training.date.substring(0,4));
+    var month = parseInt(training.date.substring(5,7));
+    var day = parseInt(training.date.substring(8,10));
+    var hour = parseInt(training.time.substring(0,2));
+    var minute = parseInt(training.time.substring(3,5));
+    var date = new Date(year, month, day, hour, minute);
+    setNewTraining({date: date.toISOString(), 
+                    activity: training.activity, 
+                    duration:training.duration,
+                    customer: props.params.value[0].href});
     props.addTraining(newTraining);
     handleClose();
   };

@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Snackbar from '@material-ui/core/Snackbar';
 import Tooltip from '@material-ui/core/Tooltip';
+import CalendarView from './CalendarView';
 
 function Trainings() {
     const [trainings, setTrainings] = useState([]);
@@ -47,13 +48,6 @@ function Trainings() {
         {field: 'activity', sortable: true, filter: true},
         {field: 'duration', sortable:true, filter: true},
         {headerName: 'Customer', valueGetter:getCustomer, sortable: true, filter: true},
-        /*{
-            headerName: '',
-            field: '_links.self.href',
-            width: 90,
-            cellRendererFramework: params => 
-                <EditCar editCar={editCar} params={params}/>
-        },*/
         {
          headerName: '',
          field: 'id',

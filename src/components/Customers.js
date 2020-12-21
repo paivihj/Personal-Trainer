@@ -8,6 +8,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 import AddTraining from './AddTraining';
+//import Trainings from './Trainings';
 import Tooltip from '@material-ui/core/Tooltip';
 
 function Customers() {
@@ -75,14 +76,12 @@ function Customers() {
             },
             body: JSON.stringify(newTraining)
         })
-        //.then(response => getTrainings())
+        //.then(response => props.getTrainings())
         .catch(err => console.error(err))
     }
 
     const columns = [
         {headerName: 'Name', valueGetter: combineNames, sortable: true, filter: true},
-        //{field: 'lastname', sortable: true, filter: true},
-        //{field: 'firstname', sortable:true, filter: true},
         {field: 'streetaddress', sortable: true, filter: true},
         {field: 'postcode', sortable: true, filter: true},
         {field: 'city', sortable: true, filter: true},
