@@ -19,7 +19,6 @@ function AddTraining(props) {
     });
 
   const handleClickOpen = () => {
-    console.log(props.params.value[0].href);
     setOpen(true);
   };
 
@@ -48,7 +47,10 @@ function AddTraining(props) {
     return (
         <div>
             <Tooltip title="Add Training to Customer" placement="top-end">
-            <IconButton style={{ marginBottom: 10 }} variant="outlined" color="primary" onClick={handleClickOpen}>
+            <IconButton style={{ marginBottom: 10 }} 
+                        variant="outlined" 
+                        color="primary" 
+                        onClick={handleClickOpen}>
                 < AddIcon />
             </IconButton>
             </Tooltip>

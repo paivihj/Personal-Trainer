@@ -3,7 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
-function CalendarView(props) {
+function CalendarView() {
 
     const localizer = momentLocalizer(moment);
     const [trainings, setTrainings] = useState([]);

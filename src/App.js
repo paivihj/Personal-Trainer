@@ -25,7 +25,7 @@ function App() {
             <Link to="/calendar">Calendar</Link>
             <Switch> 
               <Route exact path="/"><div style style={{margin: 50}}>
-                <Typography variant="h3">Welcome to Personal Trainer App!</Typography>
+                <div className="App-header">Welcome to Personal Trainer App!</div>
                 Click on the above links to see customers and agreed trainings</div>
               </Route>
               <Route path="/customers" component={Customers} />

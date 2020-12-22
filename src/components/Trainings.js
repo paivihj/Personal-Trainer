@@ -51,8 +51,12 @@ function Trainings() {
          headerName: '',
          field: 'id',
          width: 90,
-         cellRendererFramework: params => <Tooltip title="Delete Training" placement="top-end"><IconButton color="secondary"
-         onClick={() => deleteTraining(params)}><DeleteIcon fontSize="small"/></IconButton></Tooltip>
+         cellRendererFramework: params => 
+            <Tooltip title="Delete Training" placement="top-end">
+                <IconButton color="secondary" onClick={() => deleteTraining(params)}>
+                    <DeleteIcon fontSize="small"/>
+                </IconButton>
+            </Tooltip>
         }
     ]
 

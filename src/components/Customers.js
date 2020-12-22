@@ -8,7 +8,6 @@ import Snackbar from '@material-ui/core/Snackbar';
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 import AddTraining from './AddTraining';
-//import Trainings from './Trainings';
 import Tooltip from '@material-ui/core/Tooltip';
 
 function Customers() {
@@ -76,7 +75,6 @@ function Customers() {
             },
             body: JSON.stringify(newTraining)
         })
-        //.then(response => props.getTrainings())
         .catch(err => console.error(err))
     }
 
@@ -105,8 +103,12 @@ function Customers() {
          headerName: '',
          field: 'links',
          width: 90,
-         cellRendererFramework: params => <Tooltip title="Delete Customer" placement="top-end"><IconButton color="secondary"
-         onClick={() => deleteCustomer(params)}><DeleteIcon fontSize="small"/></IconButton></Tooltip>
+         cellRendererFramework: params => 
+            <Tooltip title="Delete Customer" placement="top-end">
+                <IconButton color="secondary" onClick={() => deleteCustomer(params)}>
+                    <DeleteIcon fontSize="small"/>
+                </IconButton>
+            </Tooltip>
         }
     ]
 
