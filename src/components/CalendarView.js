@@ -9,8 +9,11 @@ function CalendarView() {
     const [trainings, setTrainings] = useState([]);
     const [events, setEvents] = useState([]);
 
-    useEffect(()=>{
-        getTrainings();
+    useEffect(() => {
+        fetch('https://customerrest.herokuapp.com/gettrainings')
+        .then(response => response.json())
+        .then(data => setTrainings(data))
+        .catch(err => console.error(err));
         
         setEvents(trainings.map((training, index) => ({
             id: index,
@@ -19,13 +22,6 @@ function CalendarView() {
             title: training.activity + "/" + training.customer.lastname
         }))
     )}, [trainings.length]);
-
-    const getTrainings = () => {
-        fetch('https://customerrest.herokuapp.com/gettrainings')
-        .then(response => response.json())
-        .then(data => setTrainings(data))
-        .catch(err => console.error(err));
-    }
 
     return (
         <div>
